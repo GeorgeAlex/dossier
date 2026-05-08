@@ -1,38 +1,45 @@
 {
-  "name": "dossier",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "prepare": "husky",
-    "lint": "eslint . --ext .ts,.svelte --no-error-on-unmatched-pattern",
-    "typecheck": "tsc --noEmit",
-    "test": "pnpm -r test",
-    "format": "prettier --write ."
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-svelte": "^2.44.0",
-    "husky": "^9.1.0",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.3.0",
-    "prettier-plugin-svelte": "^3.2.0",
-    "svelte": "^4.2.0",
-    "typescript": "^5.5.0"
-  },
-  "lint-staged": {
-    "*.{ts,svelte}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.{js,mjs,cjs}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.{json,md,yaml,yml,css,html}": [
-      "prettier --write"
-    ]
-  }
+	"name": "dossier",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"prepare": "husky",
+		"lint": "eslint . --ext .ts,.svelte --no-error-on-unmatched-pattern",
+		"typecheck": "tsc --noEmit",
+		"test": "pnpm -r test",
+		"format": "prettier --write .",
+		"db:generate": "pnpm --filter @dossier/db db:generate",
+		"db:migrate": "pnpm --filter @dossier/db db:migrate"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
+		"@typescript-eslint/parser": "^7.18.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-svelte": "^2.44.0",
+		"husky": "^9.1.0",
+		"lint-staged": "^15.2.0",
+		"prettier": "^3.3.0",
+		"prettier-plugin-svelte": "^3.2.0",
+		"svelte": "^4.2.0",
+		"typescript": "^5.5.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
+	},
+	"lint-staged": {
+		"*.{ts,svelte}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{js,mjs,cjs}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{json,md,yaml,yml,css,html}": [
+			"prettier --write"
+		]
+	}
 }
