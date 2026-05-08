@@ -8,7 +8,9 @@
     "lint": "eslint . --ext .ts,.svelte --no-error-on-unmatched-pattern",
     "typecheck": "tsc --noEmit",
     "test": "pnpm -r test",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "db:generate": "pnpm --filter @dossier/db db:generate",
+    "db:migrate": "pnpm --filter @dossier/db db:migrate"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -21,6 +23,11 @@
     "prettier-plugin-svelte": "^3.2.0",
     "svelte": "^4.2.0",
     "typescript": "^5.5.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "lint-staged": {
     "*.{ts,svelte}": [
